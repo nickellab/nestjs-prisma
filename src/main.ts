@@ -11,7 +11,7 @@ async function bootstrap() {
   if (process.env.NODE_ENV === 'development') {
     try {
       execSync('pnpm nestia swagger')
-      const docs = JSON.parse(readFileSync(join(__dirname, '../../schema/swagger.json'), 'utf-8'))
+      const docs = JSON.parse(readFileSync(join(__dirname, '../../schema/openapi.json'), 'utf-8'))
       SwaggerModule.setup('api', app, docs)
     } catch (e) {
       console.log(e)
