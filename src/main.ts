@@ -8,12 +8,14 @@ import { execSync } from 'child_process'
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
 
-  try {
-    execSync('pnpm nestia swagger')
-    const docs = JSON.parse(readFileSync(join(__dirname, '../../schema/swagger.json'), 'utf-8'))
-    SwaggerModule.setup('api', app, docs)
-  } catch (e) {
-    console.log(e)
+  if (process.env.NODE_ENV === 'development') {
+    try {
+      execSync('pnpm nestia swagger')
+      const docs = JSON.parse(readFileSync(join(__dirname, '../../schema/swagger.json'), 'utf-8'))
+      SwaggerModule.setup('api', app, docs)
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   await app.listen(3001)
