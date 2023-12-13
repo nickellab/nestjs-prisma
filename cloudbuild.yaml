@@ -22,6 +22,7 @@ steps:
     name: 'gcr.io/kaniko-project/executor:latest'
     args:
       - '--destination=$_DOCKER_PKG/$PROJECT_ID/$_REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
+      - '--destination=$_DOCKER_PKG/$PROJECT_ID/$_REPO_NAME/$_SERVICE_NAME:latest'
       - '--cache=true'
       - '--cache-ttl=6h'
       - '--build-arg=_NEXT_PUBLIC_ENV1=$_NEXT_PUBLIC_ENV1'
@@ -62,6 +63,7 @@ steps:
       - $_SERVICE_NAME
       - '--image'
       - '$_DOCKER_PKG/$PROJECT_ID/$_REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
+      - '$_DOCKER_PKG/$PROJECT_ID/$_REPO_NAME/$_SERVICE_NAME:latest'
       - '--region'
       - '$_DEPLOY_REGION'
 
