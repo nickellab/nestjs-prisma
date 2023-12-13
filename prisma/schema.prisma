@@ -7,9 +7,21 @@ generator client {
 
 generator fabbrica {
   provider = "prisma-fabbrica"
+  output = "./dev/fabbrica"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model Exmaple {
+  id    Int    @id @default(autoincrement())
+  title String
+  description  String
+
+  isDeleted Boolean @default(false)
+
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
 }
