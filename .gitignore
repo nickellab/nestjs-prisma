@@ -42,3 +42,6 @@ lerna-debug.log*
 
 # Docker
 /docker/db/data
+
+# Generative
+ERD.pdf

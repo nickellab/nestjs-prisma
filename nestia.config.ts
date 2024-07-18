@@ -5,12 +5,13 @@ const config: INestiaConfig = {
     include: ['src/**/*.controller.ts'],
   },
   swagger: {
-    output: 'schema/openapi.json',
+    output: 'schema/api-service-.json',
     servers: [
       {
-        url: 'http://localhost:3011',
+        url: `http://localhost:${process.env.PORT ?? 3001}`,
       },
     ],
+    decompose: true,
   },
 }
 export default config

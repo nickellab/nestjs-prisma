@@ -62,7 +62,6 @@ steps:
       - 'deploy'
       - $_SERVICE_NAME
       - '--image'
-      - '$_DOCKER_PKG/$PROJECT_ID/$_REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
       - '$_DOCKER_PKG/$PROJECT_ID/$_REPO_NAME/$_SERVICE_NAME:latest'
       - '--region'
       - '$_DEPLOY_REGION'
@@ -77,7 +76,7 @@ steps:
 
 substitutions:
   _DOCKER_PKG: asia-northeast1-docker.pkg.dev
-  _REPO_NAME: xxxxxxxxxxxxxx
+  _REPO_NAME: __please service name__-service
 availableSecrets:
   secretManager:
     - versionName: projects/$PROJECT_ID/secrets/$_DATABASE_URL_SECRET/versions/latest
