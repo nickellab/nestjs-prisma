@@ -5,7 +5,9 @@ const config: INestiaConfig = {
     include: ['src/**/*.controller.ts'],
   },
   swagger: {
-    output: 'schema/api-service-.json',
+    openapi: '3.0',
+    beautify: true,
+    output: 'schema/api-service.json',
     servers: [
       {
         url: `http://localhost:${process.env.PORT ?? 3001}`,

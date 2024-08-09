@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: postgres
-      POSTGRES_DB: service-__please_service_name
+      POSTGRES_DB: $DATABSE_NAME
     ports:
       - 5532:5432
     volumes:
